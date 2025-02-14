@@ -1,0 +1,5 @@
+/home/paulo-bueno/app/kafka-java/kafka-introducao-e-microservicos/video5.3/ecommerce/common-kafka/src/main/java/br/com/alura/ecommerce/ConsumerFunction.java
+/home/paulo-bueno/app/kafka-java/kafka-introducao-e-microservicos/video5.3/ecommerce/common-kafka/src/main/java/br/com/alura/ecommerce/GsonDeserializer.java
+/home/paulo-bueno/app/kafka-java/kafka-introducao-e-microservicos/video5.3/ecommerce/common-kafka/src/main/java/br/com/alura/ecommerce/GsonSerializer.java
+/home/paulo-bueno/app/kafka-java/kafka-introducao-e-microservicos/video5.3/ecommerce/common-kafka/src/main/java/br/com/alura/ecommerce/KafkaDispatcher.java
+/home/paulo-bueno/app/kafka-java/kafka-introducao-e-microservicos/video5.3/ecommerce/common-kafka/src/main/java/br/com/alura/ecommerce/KafkaService.java
