@@ -1,0 +1,5 @@
+1 - Criar o Consumer
+2 - Criar o GsonDeserializer
+3 - Criar o GsonSerializer
+4 - Criar o KafkaService
+5 - Criar o KafkaDispatcher
