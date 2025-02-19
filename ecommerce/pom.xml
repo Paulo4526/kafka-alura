@@ -27,7 +27,7 @@
         <module>02-service-new-order</module>
         <module>01-common-kafka</module>
         <module>06-service-users</module>
-        <module>service-http-ecomerce</module>
+        <module>07-service-http-ecomerce</module>
     </modules>
 
     <dependencies>
