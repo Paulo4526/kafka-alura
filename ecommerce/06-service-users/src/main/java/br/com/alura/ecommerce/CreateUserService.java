@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 public class CreateUserService {
@@ -47,18 +48,18 @@ public class CreateUserService {
         System.out.println("------------------------------------------");
         System.out.println("Processing new order, checking for fraud");
         System.out.println(record.key());
-        System.out.println("Usuãrio: " + record.value().getUserId() + " / Email:" + record.value().getEmail() + "(foi adicionado)");
+        System.out.println("Email:" + record.value().getEmail() + "(foi adicionado)");
         var order = record.value();
         if(isNewUser(order.getEmail())){
-            inserNewUser(order.getUserId(), order.getEmail());
+            inserNewUser(order.getEmail());
         }
 
     }
 
-    private void inserNewUser(String uuid, String email) throws SQLException {
+    private void inserNewUser( String email) throws SQLException {
         try{
             var statement = connection.prepareStatement("insert into T_SIP_USERS (uuid, email) " + "values" + " (?,?);");
-            statement.setString(1, uuid );
+            statement.setString(1, UUID.randomUUID().toString());
             statement.setString(2, email);
             statement.executeQuery();
             System.out.println("Usuario: uuid, email: " + email + "solicitou uma nova ordem");
