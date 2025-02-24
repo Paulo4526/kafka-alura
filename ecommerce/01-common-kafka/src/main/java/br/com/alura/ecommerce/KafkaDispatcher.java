@@ -25,6 +25,11 @@ class KafkaDispatcher<T> implements Closeable {
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, GsonSerializer.class.getName());
+        //Configuração abaixo, é responsável pela réplica das mensagens apra outros brokers,, pois caso 1 caia os outros tenha a mesma informação de antes do leader cair.
+        //acks=0 -> Significa que nenhuma réplica receberá as informações do leader e caso ele caia, o próximo leader não terá as menssagens de confirmação
+        //acks=1 -> Significa que o leader ao cair enviará 1 menssagem para alguma réplica capitar, porém, não espera sincronizar as menssagens, caso algum broker assuma antes da sincronização da mensagem, não será passado nenhuma mensagem pra réplica.
+        //ascks=all -> Significa que o leader ao cair enviará a menssagem a todas as réplica, porém, a réplica só assumirá após sincronizar todas as menssagens pendendes.
+        properties.setProperty(ProducerConfig.ACKS_CONFIG, "all"); // All para esperar todas as mensagens serem sincornizadas com as réplicas.
         return properties;
     }
 
